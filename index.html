@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>audio-player</title>
+</head>
+<body>
+  <header class='header'>
+    <h1>Audio Player</h1>
+  </header>
+  <main class='main'>
+    <div class='container'>
+      <div class='player'>
+        <img src="assets/covers/cover1.jpg" alt="image">
+        <h2 class='track-title'>
+          Immortal
+        </h2>
+        <span class='artist-name'>
+          NEFFEX
+        </span>
+        <div class='timeline-slider'>
+          <div class='timeline'>
+            <small class='time'>0:00</small>
+            <small class='full-time'>2:55</small>
+          </div>
+          <div class='range'>
+            <input 
+              type="range"
+              min='0'
+              max='100'
+              value='0'
+            >
+            <div class='thumb'></div>
+            <div class='progress'></div>
+          </div>
+        </div>
+        <div class='volume'>
+          <div class='volume-icon'>
+            <button class='volume-btn'>
+              <span>
+                <img src="assets/icons/volume_up.png" alt="volume_up" height='30' width='30'>
+              </span>
+            </button>
+          </div>
+          <div class='range'>
+            <input 
+              type="range"
+              min='0'
+              max='100'
+              value='50'
+            >
+            <div class='progress'></div>
+          </div>
+        </div>
+        <div class='controls'>
+          <button id='btnPrev' class='btn'>
+            <span>
+              <img src="assets/icons/backward.png" alt="forward">
+            </span>
+          </button>
+          <button class='btn main-btn' id='mainPlayBtn'>
+            <span>
+              <img src="assets/icons/play.png" alt="forward">
+            </span>
+          </button>
+          <button id='btnNext' class='btn'>
+            <span>
+              <img src="assets/icons/forward.png" alt="forward">
+            </span>
+          </button>
+        </div>
+      </div>
+      <audio hidden>
+        <source src='assets/tracks/Immortal.mp3'>
+      </audio>
+    </div>
+  </main>
+  <footer class='footer'></footer>
+</body>
+</html>
