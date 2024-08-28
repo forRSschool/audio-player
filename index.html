@@ -58,12 +58,12 @@
       <div class='controls'>
         <button id='btnPrev' class='btn'>
           <span>
-            <img src="assets/icons/backward.png" alt="forward">
+            <img src="assets/icons/backward.png" alt="backward">
           </span>
         </button>
         <button class='btn main-btn' id='mainPlayBtn'>
           <span>
-            <img src="assets/icons/play.png" alt="forward">
+            <img class='main-button-img' src="assets/icons/play.png" alt="play">
           </span>
         </button>
         <button id='btnNext' class='btn'>
@@ -73,8 +73,7 @@
         </button>
       </div>
     </div>
-    <audio hidden>
-      <source src='assets/tracks/Immortal.mp3'>
+    <audio class='audio' src='assets/tracks/Immortal.mp3' hidden>
     </audio>
   </main>
   <footer id='footer' class="footer">
@@ -91,5 +90,7 @@
           </a>
         </div>
   </footer>
+
+  <script src='script.js'></script>
 </body>
 </html>
