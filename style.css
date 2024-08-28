@@ -83,3 +83,35 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
   border-radius: 50%;
 }
+
+/* footer styles start */
+
+.footer {
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-right,
+.footer-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3rem;
+  height: auto;
+}
+
+.logo {
+  width: 195px;
+  height: 70px;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+}
+
+.footer-author {
+  color: var(--light-color);
+  text-align: center;
+  font-size: 18px;
+  text-shadow: #272727 1px 1px 1px;
+}
