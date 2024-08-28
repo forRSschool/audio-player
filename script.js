@@ -1,11 +1,18 @@
 const mainBtn = document.querySelector('.main-btn');
 const audio = document.querySelector('.audio');
 const mainBtnImg = document.querySelector('.main-button-img');
+const volumeBtn = document.querySelector('.volume-btn');
+const volumeImg = document.querySelector('.volume-img');
 
 let isPlayMusic = false;
+let isMusicVolumeOn = true;
 
 mainBtn.addEventListener('click', () => {
   isPlayMusic? musicPause() : musicPlay();
+})
+
+volumeBtn.addEventListener('click', () => {
+  isMusicVolumeOn? musicVolumeOff() : musicVolumeOn();
 })
 
 function musicPlay() {
@@ -20,10 +27,14 @@ function musicPause() {
   mainBtnImg.src = 'assets/icons/play.png'
 }
 
-function nextMusic() {
-
+function musicVolumeOff() {
+  audio.volume = 0;
+  isMusicVolumeOn = false;
+  volumeImg.src = 'assets/icons/volume_off.png'
 }
 
-function prevMusic() {
-
+function musicVolumeOn() {
+  audio.volume = 1;
+  isMusicVolumeOn = true;
+  volumeImg.src = 'assets/icons/volume_up.png'
 }
