@@ -33,11 +33,38 @@
             max='100'
             value='0'
           >
-          <div class='thumb'></div>
           <div class='progress'></div>
+        </div>
+        <div class='controls'>
+          <button id='btnPrev' class='btn'>
+            <span>
+              <img src="assets/icons/backward.png" alt="backward">
+            </span>
+          </button>
+          <button class='btn main-btn' id='mainPlayBtn'>
+            <span>
+              <img class='main-button-img' src="assets/icons/play.png" alt="play">
+            </span>
+          </button>
+          <button id='btnNext' class='btn'>
+            <span>
+              <img src="assets/icons/forward.png" alt="forward">
+            </span>
+          </button>
         </div>
       </div>
       <div class='volume'>
+        <div class='range'>
+          <input 
+            class='volume-input'
+            type="range"
+            min='0'
+            max='100'
+            value='50'
+          >
+          <div class='thumb'></div>
+          <div class='progress'></div>
+        </div>
         <div class='volume-icon'>
           <button class='volume-btn'>
             <span>
@@ -45,32 +72,6 @@
             </span>
           </button>
         </div>
-        <div class='range'>
-          <input 
-            type="range"
-            min='0'
-            max='100'
-            value='50'
-          >
-          <div class='progress'></div>
-        </div>
-      </div>
-      <div class='controls'>
-        <button id='btnPrev' class='btn'>
-          <span>
-            <img src="assets/icons/backward.png" alt="backward">
-          </span>
-        </button>
-        <button class='btn main-btn' id='mainPlayBtn'>
-          <span>
-            <img class='main-button-img' src="assets/icons/play.png" alt="play">
-          </span>
-        </button>
-        <button id='btnNext' class='btn'>
-          <span>
-            <img src="assets/icons/forward.png" alt="forward">
-          </span>
-        </button>
       </div>
     </div>
     <audio class='audio' src='assets/tracks/Immortal.mp3' hidden>

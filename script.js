@@ -3,6 +3,7 @@ const audio = document.querySelector('.audio');
 const mainBtnImg = document.querySelector('.main-button-img');
 const volumeBtn = document.querySelector('.volume-btn');
 const volumeImg = document.querySelector('.volume-img');
+const volumeInput = document.querySelector('.volume-input');
 
 let isPlayMusic = false;
 let isMusicVolumeOn = true;
@@ -14,6 +15,15 @@ mainBtn.addEventListener('click', () => {
 volumeBtn.addEventListener('click', () => {
   isMusicVolumeOn? musicVolumeOff() : musicVolumeOn();
 })
+
+volumeInput.addEventListener("input", (event) => {
+  audio.volume = event.target.value / 100;
+  if(audio.volume) {
+    musicVolumeOn();
+  } else {
+    musicVolumeOff();
+  }
+});
 
 function musicPlay() {
   audio.play();
@@ -34,7 +44,8 @@ function musicVolumeOff() {
 }
 
 function musicVolumeOn() {
-  audio.volume = 1;
+  audio.volume = volumeInput.value / 100 || 0.1;
   isMusicVolumeOn = true;
   volumeImg.src = 'assets/icons/volume_up.png'
 }
+
