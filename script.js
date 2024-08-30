@@ -10,6 +10,9 @@ const btnNext = document.querySelector('#btnNext');
 const trackTitle = document.querySelector('.track-title');
 const artistName = document.querySelector('.artist-name');
 const trackImage = document.querySelector('.track-image');
+const time = document.querySelector('.time');
+const fullTime = document.querySelector('.full-time');
+const cover = document.querySelector('.cover');
 
 let isPlayMusic = false;
 let isMusicVolumeOn = true;
@@ -117,6 +120,7 @@ function loadTrack() {
     trackTitle.innerHTML = tracks[trackId];
     artistName.innerHTML = artists[trackId];
     trackImage.src = `./assets/covers/${covers[trackId]}.jpg`
+    cover.style.backgroundImage = `url('./assets/covers/${covers[trackId]}.jpg')`
 }
 audio.onloadedmetadata = function() {
   durationInput.max = audio.duration;
