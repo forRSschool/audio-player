@@ -7,6 +7,9 @@ const volumeInput = document.querySelector('.volume-input');
 const durationInput = document.querySelector('.duration-input');
 const btnPrev = document.querySelector('#btnPrev');
 const btnNext = document.querySelector('#btnNext');
+const trackTitle = document.querySelector('.track-title');
+const artistName = document.querySelector('.artist-name');
+const trackImage = document.querySelector('.track-image');
 
 let isPlayMusic = false;
 let isMusicVolumeOn = true;
@@ -17,7 +20,7 @@ const tracks = [
   'No Talk',
   'Enough',
   'Skylines',
-  'Get Trough',
+  'Get Through',
   'Lofi Mallet',
   'Winning'
 ]
@@ -30,6 +33,16 @@ const artists = [
   'NEFFEX',
   'Kwon',
   'NEFFEX'
+]
+
+const covers = [
+  'cover1',
+  'cover2',
+  'cover3',
+  'cover4',
+  'cover5',
+  'cover6',
+  'cover7'
 ]
 
 btnPrev.addEventListener('click', prevMusic);
@@ -80,19 +93,34 @@ function musicVolumeOn() {
 }
 
 function nextMusic() {
-  trackId++;
-  console.log(trackId)
+  if(trackId === tracks.length - 1) {
+      trackId = 0;
+  } else {
+    trackId++;
+  }
+  loadTrack()
 }
 
 function prevMusic() {
-  trackId--;
-  console.log(trackId)
+  if(trackId === 0) {
+      trackId = tracks.length - 1;
+  } else {
+    trackId--;
+  }
+  loadTrack()
 }
 
+function loadTrack() {
+    isPlayMusic = true
+    audio.src = `./assets/tracks/${tracks[trackId]}.mp3`;
+    musicPlay()
+    trackTitle.innerHTML = tracks[trackId];
+    artistName.innerHTML = artists[trackId];
+    trackImage.src = `./assets/covers/${covers[trackId]}.jpg`
+}
 audio.onloadedmetadata = function() {
   durationInput.max = audio.duration;
   durationInput.value = audio.currentTime;
-
 }
 
 
