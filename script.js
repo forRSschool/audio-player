@@ -69,18 +69,20 @@ volumeInput.addEventListener("input", (event) => {
   }
 });
 
+const interval = () => {
+  durationInput.value = audio.currentTime;
+  console.log(audio.currentTime)
+}   
+
 function musicPlay() {
   audio.play();
   mainBtnImg.src = 'assets/icons/pause.png'
-  setInterval(() => {
-    durationInput.value = audio.currentTime;
-  }, 500)
-  
+  setInterval(interval, 500)
 }
 
 function musicPause() {
   audio.pause();
-  mainBtnImg.src = 'assets/icons/play.png'
+  mainBtnImg.src = 'assets/icons/play.png';
 }
 
 function musicVolumeOff() {
@@ -120,20 +122,35 @@ function loadTrack() {
     trackTitle.innerHTML = tracks[trackId];
     artistName.innerHTML = artists[trackId];
     trackImage.src = `./assets/covers/${covers[trackId]}.jpg`
-    cover.style.backgroundImage = `url('./assets/covers/${covers[trackId]}.jpg')`
+    cover.style.backgroundImage = `url('./assets/covers/${covers[trackId]}.jpg')`;
 }
-audio.onloadedmetadata = function() {
-  durationInput.max = audio.duration;
-  durationInput.value = audio.currentTime;
-}
-
 
 
 durationInput.addEventListener('input', () => {
   audio.currentTime = durationInput.value;
   if(isPlayMusic) {
-  setInterval(() => {
-    durationInput.value = audio.currentTime;
-  }, 500)
+    setInterval(() => {
+      durationInput.value = audio.currentTime;
+    }, 500)
+  }
+})
+
+function setTime(input, output) {
+  const minutes = Math.floor(input / 60);
+  const seconds = Math.floor(input % 60);
+
+  if(seconds < 10) {
+    output.innerHTML = minutes + ':0' + seconds;
+  } else {
+    output.innerHTML = minutes + ':' + seconds;
+  }
 }
+
+
+audio.addEventListener('timeupdate', () => {
+  const currentTime = Math.floor(audio.currentTime);
+  setTime(currentTime, time);
+  setTime(audio.duration, fullTime);
+  durationInput.max = audio.duration;
+  durationInput.value = audio.currentTime;
 })
